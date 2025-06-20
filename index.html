@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>HustleDost</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -11,45 +11,61 @@
 
   <header>
     <img src="logo.png" alt="HustleDost Logo" class="logo" />
-    <h1>HustleDost</h1>
-    <p class="tagline">A Personalized Hustle Roadmap, tailored just for you.</p>
-    <a href="https://tally.so/r/nGjjlZ" class="cta-button" target="_blank">Get Your Hustle Roadmap</a>
+    <h1 class="headline">A Personalized Hustle Roadmap, tailored just for you.</h1>
+    <a href="https://tally.so/r/nGjjlZ" class="cta-button">Get Your Hustle Roadmap</a>
+    <hr class="divider" />
   </header>
-
-  <div class="divider"></div>
 
   <section class="info-section" id="info">
     <h2>What is HustleDost?</h2>
     <ul>
-      <li>⚡ A personalized roadmap platform built for real hustlers.</li>
-      <li>🧠 It analyzes your strengths, situation & passion to recommend solid hustle paths.</li>
-      <li>📈 No BS—just practical, high-value direction you can follow.</li>
-      <li>💼 Whether you’re 14 or 24, if you’re hungry, HustleDost feeds the plan.</li>
-      <li>🧰 We don’t spoon-feed. We hand you the tools, map, and vehicle.</li>
-      <li>🏁 You execute. We guide.</li>
+      <li>🎯 Gives you a roadmap customized exactly for where you're at</li>
+      <li>📌 Built for driven individuals who want clarity and a solid push</li>
+      <li>🚀 Strategy + direction without hand-holding</li>
+      <li>🧠 Analyzes your strengths, needs, and time—then gives you a clear plan</li>
+      <li>🌐 Doesn’t matter where you’re from—if you’ve got hunger, we’ve got a roadmap</li>
     </ul>
   </section>
 
   <script src="particles.js"></script>
   <script>
-    particlesJS("particles-js", {
+    particlesJS('particles-js', {
       particles: {
-        number: { value: 60 },
-        size: { value: 2 },
-        move: {
-          enable: true,
-          speed: 0.7
+        number: { value: 100 },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: {
+          value: 0.6,
+          anim: { enable: true, speed: 0.8, opacity_min: 0.3, sync: false }
+        },
+        size: {
+          value: 2.5,
+          random: true
         },
         line_linked: {
           enable: true,
-          opacity: 0.4
+          distance: 130,
+          color: "#ffffff",
+          opacity: 0.3,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 0.5,
+          direction: "none",
+          random: true,
+          straight: false,
+          bounce: false
         }
       },
       interactivity: {
+        detect_on: "canvas",
         events: {
-          onhover: { enable: true, mode: "repulse" }
+          onhover: { enable: false },
+          onclick: { enable: false }
         }
-      }
+      },
+      retina_detect: true
     });
   </script>
 </body>
