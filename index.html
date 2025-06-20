@@ -2,39 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HustleDost</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="particles-js"></div>
+  <canvas id="bgCanvas"></canvas>
 
-  <div class="main-container">
+  <div class="top-section">
     <img src="logo.png" alt="HustleDost Logo" class="logo" />
-    <h1 class="headline">HustleDost hai Assal Dost.</h1>
-    <p class="subline">Get your customized hustle roadmap in 24 hours.</p>
-    <a href="https://tally.so/r/nGjjlZ class="cta-button">Get Your Hustle Roadmap</a>
+
+    <h1 class="headline">HustleDost hai Assal Dost</h1>
+
+    <a href="https://tally.so/r/nGjjlZ" class="cta-button">Get Your Hustle Roadmap</a>
+    <a href="#info" class="info-button">What is HustleDost?</a>
   </div>
 
-  <a href="#what-is" class="what-is-button">What is HustleDost?</a>
+  <hr class="divider" />
 
-  <section id="what-is" class="info-section">
+  <div id="info" class="info-section">
     <h2>What is HustleDost?</h2>
-    <p>
-      HustleDost is your go-to digital partner that creates high-impact hustle plans tailored to your current situation.
-      It’s built for ambitious teens and 20-somethings who want clarity, direction, and a solid roadmap.
-      You fill out a quick form, and within 24 hours, you receive a detailed action plan — personalized for your life and goals.
-      It’s not about hype. It’s about giving you clear steps, tools, and strategy so you can move forward with purpose and confidence.
-    </p>
-  </section>
+    <ul>
+      <li>⚙️ HustleDost is your personalized hustle guide — not random tips, but tailored strategy.</li>
+      <li>🚀 We analyze your strengths, skills, interests, and time — and craft real roadmaps, not fluff.</li>
+      <li>🌐 It works online-first, from dropshipping to UGC to freelancing to startup prep — only real stuff.</li>
+      <li>🧠 No spoonfeeding. We show the mountain, hand you the tools, and tell you the best route.</li>
+      <li>🎯 Designed for teens and young adults ready to get serious — not dreamers, but doers.</li>
+      <li>💼 Roadmaps change monthly — based on how much you improve, learn, and commit.</li>
+    </ul>
+  </div>
 
-  <script src="particles.min.js"></script>
-  <script>
-    particlesJS.load('particles-js', 'particles-config.json');
-    document.querySelector(".what-is-button").addEventListener("click", (e) => {
-      e.preventDefault();
-      document.querySelector("#what-is").scrollIntoView({ behavior: "smooth" });
-    });
-  </script>
+  <script src="particles.js"></script>
 </body>
 </html>
