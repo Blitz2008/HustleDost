@@ -4,80 +4,64 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-let particles = [];
-let lines = [];
+let particlesArray = [];
+const numParticles = 100;
 
-function initParticles() {
-  particles = [];
-  for (let i = 0; i < 60; i++) {
-    particles.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      size: Math.random() * 2 + 1,
-      opacity: Math.random(),
-      dx: (Math.random() - 0.5) * 0.5,
-      dy: (Math.random() - 0.5) * 0.5,
-      pulse: Math.random() * 0.05 + 0.01
-    });
+class Particle {
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 2 + 1;
+    this.speedX = (Math.random() - 0.5) * 0.5;
+    this.speedY = (Math.random() - 0.5) * 0.5;
+    this.opacity = Math.random();
+    this.fade = Math.random() > 0.5 ? 0.005 : -0.005;
   }
-}
 
-function initLines() {
-  lines = [];
-  for (let i = 0; i < 12; i++) {
-    lines.push({
-      y: Math.random() * canvas.height,
-      speed: 0.3 + Math.random() * 0.2,
-      opacity: 0.05 + Math.random() * 0.1
-    });
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    this.opacity += this.fade;
+
+    if (this.opacity <= 0 || this.opacity >= 1) {
+      this.fade = -this.fade;
+    }
+
+    if (this.x < 0 || this.x > canvas.width) this.speedX = -this.speedX;
+    if (this.y < 0 || this.y > canvas.height) this.speedY = -this.speedY;
   }
-}
 
-function drawParticles() {
-  particles.forEach(p => {
-    p.opacity += p.pulse;
-    if (p.opacity > 1 || p.opacity < 0.1) p.pulse *= -1;
-
-    p.x += p.dx;
-    p.y += p.dy;
-
-    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-
+  draw() {
+    ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
     ctx.beginPath();
-    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
     ctx.fill();
-  });
+  }
 }
 
-function drawLines() {
-  lines.forEach(l => {
-    l.y += l.speed;
-    if (l.y > canvas.height) l.y = 0;
-
-    ctx.beginPath();
-    ctx.moveTo(0, l.y);
-    ctx.lineTo(canvas.width, l.y);
-    ctx.strokeStyle = `rgba(255, 255, 255, ${l.opacity})`;
-    ctx.stroke();
-  });
+function init() {
+  particlesArray = [];
+  for (let i = 0; i < numParticles; i++) {
+    particlesArray.push(new Particle());
+  }
 }
 
 function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawLines();
-  drawParticles();
+
+  for (let particle of particlesArray) {
+    particle.update();
+    particle.draw();
+  }
+
   requestAnimationFrame(animate);
 }
 
-initParticles();
-initLines();
+init();
 animate();
 
 window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  initParticles();
-  initLines();
+  init();
 });
