@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>HustleDost</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -12,38 +12,38 @@
 
   <div class="hero">
     <div class="hero-content">
-      <img src="logo.png" alt="HustleDost Logo" class="logo" />
+      <img src="logo.png" alt="HustleDost Logo" class="logo"/>
       <h1>HustleDost</h1>
-      <p>Get a real, personalized roadmap to kickstart your hustle journey. No fluff.</p>
-      <div class="buttons-row">
+      <p>The roadmap you actually needed — no course, no fluff.</p>
+      <div class="cta-row">
         <a href="https://tally.so/r/nGjjlZ target="_blank">
-          <button class="cta primary">Get Your Roadmap</button>
+          <button class="cta-btn main-btn">Get Your Roadmap</button>
         </a>
         <a href="#about">
-          <button class="cta secondary">What is HustleDost?</button>
+          <button class="cta-btn info-btn">What is HustleDost?</button>
         </a>
       </div>
     </div>
   </div>
 
   <section class="how-it-works">
-    <div class="process-box">
+    <div class="step">
       <h3>🔍 Analyze You</h3>
-      <p>We study your goals, time, skills — no templates here.</p>
+      <p>No generic stuff — your energy, goals & stage matter.</p>
     </div>
-    <div class="process-box">
+    <div class="step">
       <h3>📍 Build Plan</h3>
-      <p>Customized roadmap for your exact stage and energy level.</p>
+      <p>We blueprint a hustle strategy made only for *you*.</p>
     </div>
-    <div class="process-box">
+    <div class="step">
       <h3>🚀 Deliver Fast</h3>
-      <p>Plan delivered within 24 hours. Ready to execute.</p>
+      <p>Within 24 hours. Straight to your inbox.</p>
     </div>
   </section>
 
-  <section id="about" class="info">
+  <section id="about" class="about-section">
     <h2>What is HustleDost?</h2>
-    <p>HustleDost is your actual launchpad — not a motivator, not a course. Just a brutally practical blueprint tailored to you. Answer a form, we calculate your current phase, and send a custom hustle plan that fits your hours, goals, and energy. Fast, realistic, and personal.</p>
+    <p>We don’t give lectures or sell you PDFs. We study your current phase and give you a raw, step-by-step roadmap based on how much time, energy, and skills you have. No guesswork. Just your next move — calculated, clear, and dope.</p>
   </section>
 
   <footer>
@@ -53,10 +53,9 @@
   <script>
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
-    let w, h;
-    let particles = [];
+    let w, h, particles = [];
 
-    function initCanvas() {
+    function resize() {
       w = canvas.width = window.innerWidth;
       h = canvas.height = window.innerHeight;
     }
@@ -67,38 +66,51 @@
         particles.push({
           x: Math.random() * w,
           y: Math.random() * h,
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5,
-          size: Math.random() * 1.5 + 0.5
+          vx: (Math.random() - 0.5) * 0.7,
+          vy: (Math.random() - 0.5) * 0.7,
+          size: Math.random() * 2,
+          brightness: Math.random()
         });
       }
     }
 
-    function animateParticles() {
+    function animate() {
       ctx.clearRect(0, 0, w, h);
-      for (let p of particles) {
+      particles.forEach(p => {
         p.x += p.vx;
         p.y += p.vy;
+        p.brightness += (Math.random() - 0.5) * 0.05;
+        p.brightness = Math.max(0.2, Math.min(1, p.brightness));
 
         if (p.x < 0 || p.x > w) p.vx *= -1;
         if (p.y < 0 || p.y > h) p.vy *= -1;
 
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+        ctx.arc(p.x, p.y, p.size, 0, 2 * Math.PI);
+        ctx.fillStyle = `rgba(255, 255, 255, ${p.brightness * 0.1})`;
         ctx.fill();
+      });
+
+      // Static bright lines
+      ctx.strokeStyle = "rgba(255,255,255,0.05)";
+      for (let i = 0; i < 10; i++) {
+        ctx.beginPath();
+        ctx.moveTo(i * (w / 10), 0);
+        ctx.lineTo(i * (w / 10), h);
+        ctx.stroke();
       }
-      requestAnimationFrame(animateParticles);
+
+      requestAnimationFrame(animate);
     }
 
-    window.addEventListener('resize', () => {
-      initCanvas();
-      createParticles(60);
+    window.addEventListener("resize", () => {
+      resize();
+      createParticles(70);
     });
 
-    initCanvas();
-    createParticles(60);
-    animateParticles();
+    resize();
+    createParticles(70);
+    animate();
   </script>
 </body>
 </html>
