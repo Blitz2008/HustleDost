@@ -2,50 +2,103 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HustleDost</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <canvas id="particles"></canvas>
 
-  <!-- Moving Lines Background -->
-  <div class="lines-background">
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-  </div>
-
-  <!-- Main Hero -->
   <div class="hero">
     <div class="hero-content">
       <img src="logo.png" alt="HustleDost Logo" class="logo" />
       <h1>HustleDost</h1>
-      <p>Real guidance for real doers. Personalized roadmaps that don’t sugarcoat.</p>
-      <a href="https://tally.so/r/nGjjlZ target="_blank">
-        <button class="cta primary">Get Your Roadmap</button>
-      </a>
+      <p>Get a real, personalized roadmap to kickstart your hustle journey. No fluff.</p>
+      <div class="buttons-row">
+        <a href="https://tally.so/r/nGjjlZ target="_blank">
+          <button class="cta primary">Get Your Roadmap</button>
+        </a>
+        <a href="#about">
+          <button class="cta secondary">What is HustleDost?</button>
+        </a>
+      </div>
     </div>
   </div>
 
-  <!-- Floating What is HD Button -->
-  <a href="#about" class="floating-button">What is HustleDost?</a>
-
-  <!-- About Section -->
-  <section id="about" class="info">
-    <h2>What is HustleDost?</h2>
-    <p>
-      HustleDost is built for the hungry ones — the students and strivers who need clarity, not fluff. You fill in the form, and within 24 hours, we analyze you, your goals, and your lifestyle to give a roadmap that shows exactly what steps you need to take, what’s wasting your time, and how to execute. No spoon-feeding — we give you the mountain, the tools, and the vehicle. Now you climb.
-    </p>
+  <section class="how-it-works">
+    <div class="process-box">
+      <h3>🔍 Analyze You</h3>
+      <p>We study your goals, time, skills — no templates here.</p>
+    </div>
+    <div class="process-box">
+      <h3>📍 Build Plan</h3>
+      <p>Customized roadmap for your exact stage and energy level.</p>
+    </div>
+    <div class="process-box">
+      <h3>🚀 Deliver Fast</h3>
+      <p>Plan delivered within 24 hours. Ready to execute.</p>
+    </div>
   </section>
 
-  <!-- Footer -->
+  <section id="about" class="info">
+    <h2>What is HustleDost?</h2>
+    <p>HustleDost is your actual launchpad — not a motivator, not a course. Just a brutally practical blueprint tailored to you. Answer a form, we calculate your current phase, and send a custom hustle plan that fits your hours, goals, and energy. Fast, realistic, and personal.</p>
+  </section>
+
   <footer>
-    <p>© 2025 HustleDost. All Rights Reserved.</p>
+    <p>© 2025 HustleDost. All rights reserved.</p>
   </footer>
 
+  <script>
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    let w, h;
+    let particles = [];
+
+    function initCanvas() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+
+    function createParticles(count) {
+      particles = [];
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5,
+          size: Math.random() * 1.5 + 0.5
+        });
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, w, h);
+      for (let p of particles) {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > w) p.vx *= -1;
+        if (p.y < 0 || p.y > h) p.vy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+        ctx.fill();
+      }
+      requestAnimationFrame(animateParticles);
+    }
+
+    window.addEventListener('resize', () => {
+      initCanvas();
+      createParticles(60);
+    });
+
+    initCanvas();
+    createParticles(60);
+    animateParticles();
+  </script>
 </body>
 </html>
