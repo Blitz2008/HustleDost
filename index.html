@@ -7,35 +7,34 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <canvas id="bgCanvas"></canvas>
+  <div id="particles-js"></div>
 
   <div class="main-container">
     <img src="logo.png" alt="HustleDost Logo" class="logo" />
-    <h1>HustleDost hai Assal Dost</h1>
-    <p>Your first real partner in building something of your own.</p>
-    <a href="https://tally.so/r/nGjjlZ target="_blank" class="cta-button">Get Your Hustle Roadmap</a>
+    <h1 class="headline">HustleDost hai Assal Dost.</h1>
+    <p class="subline">Get your customized hustle roadmap in 24 hours.</p>
+    <a href="https://tally.so/r/nGjjlZ class="cta-button">Get Your Hustle Roadmap</a>
   </div>
 
-  <a href="#info" class="info-button">What is HustleDost?</a>
+  <a href="#what-is" class="what-is-button">What is HustleDost?</a>
 
-  <div id="info" class="info-section">
-    <h2>What exactly is HustleDost?</h2>
-    <p>HustleDost is your silent engine — built for those who want to move different, think sharper, and start their hustle early. Whether you’re 16 or 26, this platform is built to extract clarity from your chaos.</p>
-    <ul>
-      <li>🛠️ You tell us your current status and vision.</li>
-      <li>📋 We analyze it through real frameworks and give you a high-value, full-page roadmap.</li>
-      <li>🚀 No fluff, no courses — just straight actionable pathways.</li>
-      <li>⏳ Each roadmap is unique and crafted from scratch — no pre-written copy-paste garbage.</li>
-    </ul>
-    <p>HustleDost isn't for lazy dabblers. If you're serious about creating something that’s truly yours, we’re your first real guide.</p>
-  </div>
+  <section id="what-is" class="info-section">
+    <h2>What is HustleDost?</h2>
+    <p>
+      HustleDost is your go-to digital partner that creates high-impact hustle plans tailored to your current situation.
+      It’s built for ambitious teens and 20-somethings who want clarity, direction, and a solid roadmap.
+      You fill out a quick form, and within 24 hours, you receive a detailed action plan — personalized for your life and goals.
+      It’s not about hype. It’s about giving you clear steps, tools, and strategy so you can move forward with purpose and confidence.
+    </p>
+  </section>
 
+  <script src="particles.min.js"></script>
   <script>
-    document.querySelector(".info-button").addEventListener("click", function (e) {
+    particlesJS.load('particles-js', 'particles-config.json');
+    document.querySelector(".what-is-button").addEventListener("click", (e) => {
       e.preventDefault();
-      document.querySelector("#info").scrollIntoView({ behavior: "smooth" });
+      document.querySelector("#what-is").scrollIntoView({ behavior: "smooth" });
     });
   </script>
-  <script src="particles.js"></script>
 </body>
 </html>
