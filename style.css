@@ -9,7 +9,7 @@ body {
   background-color: #1a1a1a;
   color: #fff;
   min-height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
   position: relative;
 }
 
@@ -32,12 +32,32 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* Main Container */
-.container {
+/* Sections */
+.section {
+  padding: 100px 30px;
+  text-align: center;
   position: relative;
   z-index: 1;
-  max-width: 600px;
-  margin: 100px auto;
+}
+
+.section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.section p {
+  font-size: 18px;
+  color: #ccc;
+  max-width: 700px;
+  margin: 0 auto 30px auto;
+  line-height: 1.6;
+}
+
+/* Container Box */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
   background: #ffffff;
   border-radius: 25px;
   box-shadow: 0 0 60px rgba(0, 0, 0, 0.3);
@@ -46,28 +66,21 @@ body {
   color: #111;
 }
 
-/* Logo Styling */
+.hero .container {
+  background: #fff;
+  color: #111;
+}
+
+/* Logo */
 .logo {
   width: 140px;
   height: 140px;
   border-radius: 50%;
   margin-bottom: 25px;
-  box-shadow: 0 0 20px rgba(255, 140, 0, 0.5);
+  box-shadow: 0 0 25px rgba(255, 140, 0, 0.5);
 }
 
-/* Headings and Text */
-h1 {
-  font-size: 36px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 18px;
-  margin-bottom: 30px;
-}
-
-/* Glowing Button */
+/* Button */
 .glow-button {
   padding: 14px 28px;
   font-size: 18px;
@@ -86,19 +99,42 @@ p {
   transform: translateY(-2px);
 }
 
-/* Fade Animations */
+/* How it Works Cards */
+.steps {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.step {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 20px 30px;
+  font-size: 18px;
+  color: #fff;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 18px rgba(255, 140, 0, 0.3);
+}
+
+/* CTA Section */
+.cta {
+  background: #111;
+  padding-bottom: 100px;
+}
+
+/* Fade animation */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
   animation: fadeIn 1s ease-out forwards;
-}
-
-.delay {
-  animation-delay: 0.4s;
-}
-
-.delay-more {
-  animation-delay: 0.8s;
 }
 
 @keyframes fadeIn {
