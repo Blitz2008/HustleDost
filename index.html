@@ -7,31 +7,50 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <canvas id="bgCanvas"></canvas>
+  <div id="particles-js"></div>
 
-  <div class="top-section">
+  <header>
     <img src="logo.png" alt="HustleDost Logo" class="logo" />
+    <h1>HustleDost</h1>
+    <p class="tagline">A Personalized Hustle Roadmap, tailored just for you.</p>
+    <a href="https://tally.so/r/nGjjlZ" class="cta-button" target="_blank">Get Your Hustle Roadmap</a>
+  </header>
 
-    <h1 class="headline">HustleDost hai Assal Dost</h1>
+  <div class="divider"></div>
 
-    <a href="https://tally.so/r/nGjjlZ" class="cta-button">Get Your Hustle Roadmap</a>
-    <a href="#info" class="info-button">What is HustleDost?</a>
-  </div>
-
-  <hr class="divider" />
-
-  <div id="info" class="info-section">
+  <section class="info-section" id="info">
     <h2>What is HustleDost?</h2>
     <ul>
-      <li>⚙️ HustleDost is your personalized hustle guide — not random tips, but tailored strategy.</li>
-      <li>🚀 We analyze your strengths, skills, interests, and time — and craft real roadmaps, not fluff.</li>
-      <li>🌐 It works online-first, from dropshipping to UGC to freelancing to startup prep — only real stuff.</li>
-      <li>🧠 No spoonfeeding. We show the mountain, hand you the tools, and tell you the best route.</li>
-      <li>🎯 Designed for teens and young adults ready to get serious — not dreamers, but doers.</li>
-      <li>💼 Roadmaps change monthly — based on how much you improve, learn, and commit.</li>
+      <li>⚡ A personalized roadmap platform built for real hustlers.</li>
+      <li>🧠 It analyzes your strengths, situation & passion to recommend solid hustle paths.</li>
+      <li>📈 No BS—just practical, high-value direction you can follow.</li>
+      <li>💼 Whether you’re 14 or 24, if you’re hungry, HustleDost feeds the plan.</li>
+      <li>🧰 We don’t spoon-feed. We hand you the tools, map, and vehicle.</li>
+      <li>🏁 You execute. We guide.</li>
     </ul>
-  </div>
+  </section>
 
   <script src="particles.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 60 },
+        size: { value: 2 },
+        move: {
+          enable: true,
+          speed: 0.7
+        },
+        line_linked: {
+          enable: true,
+          opacity: 0.4
+        }
+      },
+      interactivity: {
+        events: {
+          onhover: { enable: true, mode: "repulse" }
+        }
+      }
+    });
+  </script>
 </body>
 </html>

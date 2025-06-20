@@ -1,111 +1,94 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
-}
-
 body {
-  background: #0f0f0f;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #fff;
+  background-color: #0a0a0a;
   overflow-x: hidden;
   position: relative;
 }
 
-canvas#bgCanvas {
+#particles-js {
   position: fixed;
-  top: 0;
-  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: -1;
 }
 
-.top-section {
-  padding: 100px 20px 40px;
+header {
   text-align: center;
+  padding: 80px 20px 40px;
 }
 
 .logo {
   width: 120px;
   border-radius: 50%;
-  box-shadow: 0 0 20px orange;
-  margin-bottom: 20px;
+  box-shadow: 0 0 20px rgba(255, 115, 0, 0.4);
+  margin-bottom: 10px;
 }
 
-.headline {
-  font-size: 2.5rem;
-  font-weight: bold;
+h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.tagline {
+  font-size: 1.2rem;
   margin-bottom: 30px;
-}
-
-.cta-button, .info-button {
-  display: inline-block;
-  margin: 10px;
-  padding: 14px 30px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s ease;
+  color: #f0f0f0;
 }
 
 .cta-button {
-  background: orange;
-  color: #000;
-  box-shadow: 0 0 10px rgba(255, 165, 0, 0.6);
+  background: #d35400;
+  padding: 14px 28px;
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: none;
+  transition: all 0.3s ease;
 }
 
 .cta-button:hover {
-  background: #ff9900;
-  box-shadow: 0 0 20px rgba(255, 140, 0, 0.8);
-}
-
-.info-button {
-  background: transparent;
-  color: #fff;
-  border: 2px solid #00c3ff;
-  box-shadow: 0 0 10px #00c3ff;
-}
-
-.info-button:hover {
-  background: #00c3ff;
-  color: #000;
+  background: #ff8800;
+  box-shadow: 0 0 20px #ff6a00b9;
+  transform: scale(1.05);
 }
 
 .divider {
   width: 80%;
-  margin: 40px auto;
+  margin: 60px auto 30px;
   height: 2px;
-  background: #00c3ff;
-  border: none;
-  border-radius: 10px;
+  background: linear-gradient(90deg, transparent, #ff7b00, transparent);
+  border-radius: 2px;
 }
 
 .info-section {
-  padding: 40px 20px;
-  max-width: 900px;
+  max-width: 800px;
   margin: auto;
-  font-size: 1.1rem;
-  line-height: 1.6;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
 }
 
 .info-section h2 {
+  text-align: center;
+  color: #ffffff;
   font-size: 2rem;
   margin-bottom: 20px;
-  text-align: center;
 }
 
 .info-section ul {
   list-style: none;
+  padding: 0;
 }
 
-.info-section li {
-  margin: 15px 0;
-  padding-left: 20px;
-  position: relative;
-}
-
-.info-section li::before {
-  content: "➤";
-  position: absolute;
-  left: 0;
-  color: #00c3ff;
+.info-section ul li {
+  background: rgba(255, 255, 255, 0.04);
+  margin: 12px 0;
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #dddddd;
 }
