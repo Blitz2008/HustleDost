@@ -6,55 +6,60 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #1f1f1f;
-  overflow-x: hidden;
-  position: relative;
+  background-color: #1a1a1a;
   color: #fff;
   min-height: 100vh;
+  overflow: hidden;
+  position: relative;
 }
 
+/* Background Animation */
 .animated-bg {
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(-45deg, #1f1f1f, #2c2c2c, #1f1f1f, #2c2c2c);
+  background: linear-gradient(-45deg, #1a1a1a, #262626, #1a1a1a, #262626);
   background-size: 400% 400%;
-  animation: gradient 10s ease infinite;
+  animation: gradientMove 15s ease infinite;
   z-index: 0;
 }
 
-@keyframes gradient {
+@keyframes gradientMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
+/* Main Container */
 .container {
   position: relative;
   z-index: 1;
-  padding: 100px 30px;
-  text-align: center;
   max-width: 600px;
-  margin: auto;
-  background: #fff;
+  margin: 100px auto;
+  background: #ffffff;
   border-radius: 25px;
   box-shadow: 0 0 60px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  padding: 60px 30px;
   color: #111;
 }
 
+/* Logo Styling */
 .logo {
   width: 140px;
   height: 140px;
   border-radius: 50%;
   margin-bottom: 25px;
-  box-shadow: 0 0 20px rgba(255, 140, 0, 0.7);
-  transition: all 0.4s ease-in-out;
+  box-shadow: 0 0 20px rgba(255, 140, 0, 0.5);
 }
 
+/* Headings and Text */
 h1 {
   font-size: 36px;
-  margin-bottom: 10px;
   font-weight: 600;
+  margin-bottom: 10px;
 }
 
 p {
@@ -62,6 +67,7 @@ p {
   margin-bottom: 30px;
 }
 
+/* Glowing Button */
 .glow-button {
   padding: 14px 28px;
   font-size: 18px;
@@ -80,6 +86,7 @@ p {
   transform: translateY(-2px);
 }
 
+/* Fade Animations */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
@@ -89,6 +96,7 @@ p {
 .delay {
   animation-delay: 0.4s;
 }
+
 .delay-more {
   animation-delay: 0.8s;
 }
